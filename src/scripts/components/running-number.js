@@ -1,5 +1,9 @@
+import generateRandomNumber from '../utils/generate-random-number';
+
 class RunningNumber {
-  constructor({ currentNumber, spawnTime, operateNumber }) {
+  constructor({
+    currentNumber, spawnTime, operateNumber, operationSymbol,
+  }) {
     this.currentNumber = currentNumber;
     this.spawnTime = spawnTime;
     this.operateNumber = operateNumber;
@@ -7,7 +11,7 @@ class RunningNumber {
     this.countNumberDiv = 0;
 
     this.createColumn();
-    this.createOperateButton();
+    this.createOperateButton(operationSymbol);
   }
 
   createColumn() {
@@ -16,48 +20,52 @@ class RunningNumber {
     this.column = div;
   }
 
-  createOperateButton() {
+  createOperateButton(operationSymbol) {
     const btn = document.createElement('button');
-    btn.textContent = '+';
+    btn.textContent = operationSymbol;
     btn.addEventListener('click', () => this.handleOperatorButton());
     this.operateButton = btn;
   }
 
   handleOperatorButton() {
-    const lastElement = this.column.lastElementChild;
+    const lastElement = this.column.querySelector('div:nth-child(10)');
     let lastNumber = 0;
 
-    if (lastElement.textContent !== '-') {
-      lastNumber += this.column.lastElementChild.textContent;
-    }
+    if (lastElement === null || lastElement.textContent === '-') return;
+    lastNumber += this.column.lastElementChild.textContent;
+    lastElement.textContent = 'X';
 
     this.currentNumber.value = this.operateNumber(
-      parseFloat(this.currentNumber.value) || 0,
-      parseFloat(lastNumber),
-    );
+      this.currentNumber.value || 0,
+      lastNumber,
+    ) || 0;
 
     this.currentNumber.dispatchEvent(new Event('number:changed'));
   }
 
   renderTo(container) {
-    container.appendChild(this.column);
-    container.appendChild(this.operateButton);
+    const divRender = document.createElement('div');
+    divRender.classList.add('container-column');
+    divRender.appendChild(this.column);
+    divRender.appendChild(this.operateButton);
+
+    container.appendChild(divRender);
   }
 
   generateNumber() {
     const divNumber = document.createElement('div');
     divNumber.classList.add('column__number');
-    const randomNumber = Math.floor(Math.random() * 20);
+    const randomNumber = generateRandomNumber(1, 20);
 
     if (this.countNumberDiv >= 10) {
       this.column.removeChild(this.column.lastElementChild);
     } else {
       this.countNumberDiv += 1;
     }
-    if (randomNumber > 10) {
+    if (randomNumber > 9) {
       divNumber.innerText = '-';
     } else {
-      divNumber.innerText = Math.floor(Math.random() * 10);
+      divNumber.innerText = randomNumber;
     }
 
     return divNumber;
