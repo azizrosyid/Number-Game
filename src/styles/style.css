@@ -1,0 +1,31 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+main{
+    height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    height: 400px;
+    width: 40px;
+    background-color: aqua;
+    position: relative;
+    margin: 0;
+}
+
+.column__number {
+    height: 40px;
+    width: 40px;
+    font-size: larger;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 40px;
+    box-sizing: border-box;
+}
+
+.column__number:nth-child(10){
+    border: 2px solid gold;
+}
