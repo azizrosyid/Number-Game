@@ -23,28 +23,29 @@ const Home = {
     const targetNumber = document.querySelector('#targetNumber');
     const scoreNow = document.querySelector('#scoreNow');
 
-    const addRunningNumber = new RunningNumberBuilder()
+    const runningNumberBuilder = new RunningNumberBuilder();
+    const addRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.add)
       .setSpawnTime(200)
       .setOperationSymbol('+')
       .build();
 
-    const substractRunningNumber = new RunningNumberBuilder()
+    const substractRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.substract)
       .setSpawnTime(200)
       .setOperationSymbol('-')
       .build();
 
-    const divideRunningNumber = new RunningNumberBuilder()
+    const divideRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.divide)
       .setSpawnTime(200)
       .setOperationSymbol('/')
       .build();
 
-    const multiplyRunningNumber = new RunningNumberBuilder()
+    const multiplyRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.multiply)
       .setSpawnTime(200)
