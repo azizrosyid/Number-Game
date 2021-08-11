@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 body {
+    font-family: 'Roboto', sans-serif;
     padding: 0;
     margin: 0;
 }
@@ -7,15 +9,41 @@ main{
     display: flex;
     justify-content: center;
 }
+#container-game{
+    height: auto;
+    display: flex;
+    gap: 100px;
+}
 
 .column {
     height: 400px;
     width: 40px;
-    background-color: aqua;
+    background-color: #ABEDD8;
     position: relative;
     margin: 0;
 }
 
+.container-running-number{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-info-game input{
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 40px;
+}
+
+.column__button{
+    height: 40px;
+    width: 40px;
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: larger;
+}
 .column__number {
     height: 40px;
     width: 40px;
@@ -27,5 +55,5 @@ main{
 }
 
 .column__number:nth-child(10){
-    border: 2px solid gold;
+    border: 2px solid #46CDCF;
 }

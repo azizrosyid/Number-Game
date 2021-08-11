@@ -1,4 +1,5 @@
 import NumberGamePresenter from '../../components/number-game-presenter';
+import GLOBAL_CONFIG from '../../globals/config';
 import numberOperation from '../../utils/math-helper';
 import RunningNumberBuilder from '../../utils/running-number-builder';
 
@@ -24,32 +25,33 @@ const Home = {
     const scoreNow = document.querySelector('#scoreNow');
 
     const runningNumberBuilder = new RunningNumberBuilder();
+
     const addRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.add)
-      .setSpawnTime(200)
-      .setOperationSymbol('+')
+      .setSpawnTime(GLOBAL_CONFIG.SPAWN_TIME)
+      .setOperationSymbol(GLOBAL_CONFIG.ADD_SYMBOl)
       .build();
 
     const substractRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.substract)
-      .setSpawnTime(200)
-      .setOperationSymbol('-')
+      .setSpawnTime(GLOBAL_CONFIG.SPAWN_TIME)
+      .setOperationSymbol(GLOBAL_CONFIG.SUBSTRACT_SYMBOL)
       .build();
 
     const divideRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.divide)
-      .setSpawnTime(200)
-      .setOperationSymbol('/')
+      .setSpawnTime(GLOBAL_CONFIG.SPAWN_TIME)
+      .setOperationSymbol(GLOBAL_CONFIG.DIVIDE_SYMBOL)
       .build();
 
     const multiplyRunningNumber = runningNumberBuilder
       .setElementCurrentNumber(currentNumber)
       .setOperateNumber(numberOperation.multiply)
-      .setSpawnTime(200)
-      .setOperationSymbol('x')
+      .setSpawnTime(GLOBAL_CONFIG.SPAWN_TIME)
+      .setOperationSymbol(GLOBAL_CONFIG.MULTIPLY_SYMBOL)
       .build();
 
     const numberGamePresenter = new NumberGamePresenter({

@@ -23,6 +23,7 @@ class RunningNumber {
   createOperateButton(operationSymbol) {
     const btn = document.createElement('button');
     btn.textContent = operationSymbol;
+    btn.classList.add('column__button');
     btn.addEventListener('click', () => this.handleOperatorButton());
     this.operateButton = btn;
   }
@@ -31,14 +32,14 @@ class RunningNumber {
     const lastElement = this.column.querySelector('div:nth-child(10)');
     let lastNumber = 0;
 
-    if (lastElement === null || lastElement.textContent === '-') return;
+    if (lastElement === null || lastElement.textContent === '') return;
     lastNumber += this.column.lastElementChild.textContent;
-    lastElement.textContent = 'X';
+    lastElement.textContent = '';
 
     this.currentNumber.value = this.operateNumber(
-      this.currentNumber.value || 0,
+      this.currentNumber.value,
       lastNumber,
-    ) || 0;
+    );
 
     this.currentNumber.dispatchEvent(new Event('number:changed'));
   }
@@ -63,7 +64,7 @@ class RunningNumber {
       this.countNumberDiv += 1;
     }
     if (randomNumber > 9) {
-      divNumber.innerText = '-';
+      divNumber.innerText = '';
     } else {
       divNumber.innerText = randomNumber;
     }
