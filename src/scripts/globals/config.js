@@ -1,0 +1,9 @@
+const GLOBAL_CONFIG = {
+  SPAWN_TIME: 500,
+  ADD_SYMBOl: '+',
+  SUBSTRACT_SYMBOL: '-',
+  MULTIPLY_SYMBOL: 'X',
+  DIVIDE_SYMBOL: '÷',
+};
+
+module.exports = GLOBAL_CONFIG;

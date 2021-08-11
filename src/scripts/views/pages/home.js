@@ -8,6 +8,9 @@ const Home = {
     return `
     <div id='container-game'>
       <div class="container-info-game">
+        <button class="btn-start-game">Start Game</button>
+        <button class="btn-stop-game">Stop Game</button>
+        <button class="btn-reset-game">Reset Game</button>
         <p>Current Number</p>
         <input type="number" name="currentNumber" id="currentNumber" value="0" disabled>
         <p>Target Number</p>
@@ -23,6 +26,9 @@ const Home = {
     const currentNumber = document.querySelector('#currentNumber');
     const targetNumber = document.querySelector('#targetNumber');
     const scoreNow = document.querySelector('#scoreNow');
+    const btnStartGame = document.querySelector('.btn-start-game');
+    const btnStopGame = document.querySelector('.btn-stop-game');
+    const btnResetGame = document.querySelector('.btn-reset-game');
 
     const runningNumberBuilder = new RunningNumberBuilder();
 
@@ -66,7 +72,23 @@ const Home = {
         multiplyRunningNumber,
       ],
     });
-    numberGamePresenter.startRunningNumber();
+
+    btnStartGame.addEventListener('click', () => {
+      btnStartGame.disabled = true;
+      btnStopGame.disabled = false;
+      numberGamePresenter.startRunningNumber();
+    });
+
+    btnStopGame.addEventListener('click', () => {
+      btnStartGame.disabled = false;
+      btnStopGame.disabled = true;
+      numberGamePresenter.stopRunningNumber();
+    });
+
+    btnResetGame.addEventListener('click', () => {
+      btnStopGame.click();
+      numberGamePresenter.resetGame();
+    });
   },
 };
 

@@ -50,6 +50,12 @@ class NumberGamePresenter {
   stopRunningNumber() {
     this.arrayRunningNumber.forEach((runningNumber) => runningNumber.clearLoopAddToNumber());
   }
+
+  resetGame() {
+    this.scoreNow.value = 0;
+    this.generateRandomTargetNumber();
+    this.resetCurrentNumber();
+  }
 }
 
 export default NumberGamePresenter;
