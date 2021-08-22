@@ -6,4 +6,4 @@ const GLOBAL_CONFIG = {
   DIVIDE_SYMBOL: '÷',
 };
 
-module.exports = GLOBAL_CONFIG;
+export default GLOBAL_CONFIG;
