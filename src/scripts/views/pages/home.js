@@ -12,20 +12,20 @@ const Home = {
         <button class="btn-stop-game">Stop Game</button>
         <button class="btn-reset-game">Reset Game</button>
         <p>Current Number</p>
-        <input type="number" name="currentNumber" id="currentNumber" value="0" disabled>
+        <input type="number" name="currentNumber" id="current-number" value="0" disabled>
         <p>Target Number</p>
-        <input type="number" name="targetNumber" id="targetNumber" value="5" disabled>
+        <input type="number" name="targetNumber" id="target-number" value="5" disabled>
         <p>Score Now</p>
-        <input type="number" name="scoreNow" id="scoreNow" value="0" disabled>
+        <input type="number" name="scoreNow" id="score-now" value="0" disabled>
       </div>
     </div>`;
   },
 
   async afterRender() {
     const containerGame = document.querySelector('#container-game');
-    const currentNumber = document.querySelector('#currentNumber');
-    const targetNumber = document.querySelector('#targetNumber');
-    const scoreNow = document.querySelector('#scoreNow');
+    const currentNumber = document.querySelector('#current-number');
+    const targetNumber = document.querySelector('#target-number');
+    const scoreNow = document.querySelector('#score-now');
     const btnStartGame = document.querySelector('.btn-start-game');
     const btnStopGame = document.querySelector('.btn-stop-game');
     const btnResetGame = document.querySelector('.btn-reset-game');
